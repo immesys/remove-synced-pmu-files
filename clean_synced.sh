@@ -6,7 +6,7 @@ then
 fi
 ytag=$(cat syncconfig.ini | grep "ytagbase" | cut -d'=' -f 2)
 
-nsfiles=$(mongo --quiet upmu_database --eval "db.received_files.find({\"ytag\":52}).count()")
+nsfiles=$(mongo --quiet upmu_database --eval "db.received_files.find({\"ytag\":$ytag}).count()")
 nfiles=$(mongo --quiet upmu_database --eval "db.received_files.find().count()")
 
 if [ $nsfiles -gt 0 ]
